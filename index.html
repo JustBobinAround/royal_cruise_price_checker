@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Cruise Price Checking Utility</title>
+    <script>
+        function buildAndRedirect() {
+            const field1 = document.getElementById('field1').value;
+            const field2 = document.getElementById('field2').value;
+            const url = `https://www.royalcaribbean.com/account/cruise-planner?bookingId= &shipCode=${encodeURIComponent(field1)}&sailDate=${encodeURIComponent(field2)}`;
+
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <h1>Royal Cruise Price Checking Utility</h1>
+    <p>Fill out the form and you will be redirected to the royal cruise page
+    where prices can be examined.</p>
+    <form onsubmit="event.preventDefault(); buildAndRedirect();">
+        <label for="field1">Cruise Code:</label>
+        <input type="text" id="field1" placeholder="Enter cruise code" required><br><br>
+
+        <label for="field2">Date (YYYYMMDD):</label>
+        <input type="text" id="field2" placeholder="Enter Date (YYYYMMDD)" required><br><br>
+
+        <button type="submit">Go</button>
+    </form>
+</body>
+</html>
+
